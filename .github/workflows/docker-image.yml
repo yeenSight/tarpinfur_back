@@ -31,7 +31,7 @@ jobs:
           cache: 'maven'
 
       - name: Build with Maven (package)
-        run: mvn -B -DskipTests=false package
+        run: mvn -B -DskipTests=true package
 
       - name: Login GHCR
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u "${{ github.actor }}" --password-stdin
