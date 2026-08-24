@@ -3,8 +3,6 @@ services:
     image: mongo:7
     container_name: mongodb
     restart: unless-stopped
-    env_file:
-      - /opt/tarpinfur_back/prod.env
     environment:
       - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
       - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
@@ -29,8 +27,6 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
-    env_file:
-      - /opt/tarpinfur_back/prod.env
     environment:
       - MONGO_HOST=${MONGO_HOST}
       - MONGO_PORT=${MONGO_PORT}
