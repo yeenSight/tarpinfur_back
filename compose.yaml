@@ -25,9 +25,12 @@ services:
       - mongodb
     ports:
       - "8080:8080"
+      - "5005:5005"
     env_file:
       - .env
     environment:
+      - SPRING_PROFILES_ACTIVE=dev
+      - JAVA_TOOL_OPTIONS=-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005
       - SPRING_DATA_MONGODB_HOST=${MONGO_HOST}
       - SPRING_DATA_MONGODB_PORT=${MONGO_PORT}
       - SPRING_DATA_MONGODB_DATABASE=${MONGO_DATABASE}

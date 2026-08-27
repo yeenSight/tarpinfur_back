@@ -38,6 +38,7 @@ services:
       - SERVER_PORT=${SERVER_PORT:-8080}
     ports:
       - "8080:8080"
+      - "5005:5005"
     networks:
       - appnet
     logging:
